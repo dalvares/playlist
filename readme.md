@@ -1,4 +1,4 @@
-# ==========Playlist Parent ============#
+# ==========Playlist Parent ============
 ## Modules? ##
 * [Playlist App](playlist-app/readme.md)
 * [Playlist Manager](playlist-manager/readme.md)
@@ -13,7 +13,7 @@
 The Program can be run using com.playlist.app.ContentPlaylistCreationApplication file using main method defined inside of this file. 
 This is a spring boot application that starts a tomcat container internally at default port 8080.
 
-'''javascript
+'''java
    @SpringBootApplication
 	public class ContentPlaylistCreationApplication {
 
