@@ -1,13 +1,13 @@
 # ==========Playlist Parent ============#
 ## Modules? ##
-* [Playlist App](playlist-app/README.md)
-* [Playlist Manager](playlist-manager/README.md)
-* [Playlist API](playlist-api/README.md)
-* [Playlist Model](playlist-model/README.md)
-* [Playlist Repository](playlist-db/README.md)
+* [Playlist App](playlist-app/readme.md)
+* [Playlist Manager](playlist-manager/readme.md)
+* [Playlist API](playlist-api/readme.md)
+* [Playlist Model](playlist-model/readme.md)
+* [Playlist Repository](playlist-db/readme.md)
 
 ## Class Diagram ##
-* [Playlist Class Diagram](./Content Playlist Class Diagram.png)
+* [Playlist Class Diagram](Class_Diagram.png)
 
 ## How to run application? ##
 The Program can be run using com.playlist.app.ContentPlaylistCreationApplication file using main method defined inside of this file. 
