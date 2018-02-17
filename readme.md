@@ -7,7 +7,7 @@
 * [Playlist Repository](playlist-db/readme.md)
 
 ## Class Diagram ##
-* [Playlist Class Diagram](Class_Diagram.png)
+* [Playlist Class Diagram](Content Playlist Class Diagram.png)
 
 ## How to run application? ##
 The Program can be run using com.playlist.app.ContentPlaylistCreationApplication file using main method defined inside of this file. 
