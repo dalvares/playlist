@@ -1,4 +1,4 @@
-# =============================Playlist Parent ============================#
-All the models that will be used by the application are defined in this module
+# =============================Playlist Manager ============================#
+The is the worker layer which will interact with the database and will contain the core logic for the application
 
 
