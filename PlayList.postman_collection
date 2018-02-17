@@ -1,0 +1,268 @@
+{
+	"variables": [],
+	"info": {
+		"name": "PlayList",
+		"_postman_id": "9124e6c5-4a0d-b1a9-a0c9-f5069ddfea87",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01-PlayList Ingestion API",
+			"description": "",
+			"item": [
+				{
+					"name": "Large File Success Case",
+					"request": {
+						"url": "http://localhost:8080/meta-data/",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n  \"content\": [\n\n    {\n\n      \"name\": \"MI3\",\n\n      \"preroll\": [{ \"name\": \"WB1\" }],\n\n      \"videos\": [\n\n        { \"name\": \"V1\", \"attributes\": {\"countries\": [\"US\", \"CA\"], \"language\":\"English\", \"aspect\": \"16:9\"} },\n\n        { \"name\": \"V2\", \"attributes\": {\"countries\": [\"UK\"], \"language\": \"English\",\"aspect\": \"4:3\"} },\n\n        { \"name\": \"V3\", \"attributes\": {\"countries\": [\"UK\"], \"language\": \"English\",\"aspect\": \"16:9\"} }\n\n      ]\n\n    }\n\n  ],\n\n  \"preroll\": [\n\n    {\n\n      \"name\": \"WB1\",\n\n      \"videos\": [\n\n        { \"name\": \"V4\", \"attributes\": {\"countries\": [\"US\"], \"language\": \"English\",\"aspect\": \"4:3\"} },\n\n        { \"name\": \"V5\", \"attributes\": {\"countries\": [\"CA\"], \"language\": \"English\",\"aspect\": \"16:9\"} },\n\n        { \"name\": \"V6\", \"attributes\": {\"countries\": [\"UK\"], \"language\": \"English\",\"aspect\": \"4:3\"} },\n\n        { \"name\": \"V7\", \"attributes\": {\"countries\": [\"UK\"], \"language\": \"English\",\"aspect\": \"16:9\"} }\n\n      ]\n\n    }\n\n  ]\n\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Bad Request for Large File Missing Content Name",
+					"request": {
+						"url": "http://localhost:8080/meta-data/",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n  \"content\": [\n\n    {\n\n     \n      \"preroll\": [{ \"name\": \"WB1\" }],\n\n      \"videos\": [\n\n        {  \"attributes\": {\"countries\": [\"US\", \"CA\"], \"language\":\"English\", \"aspect\": \"16:9\"} },\n\n        { \"name\": \"V2\", \"attributes\": {\"countries\": [\"UK\"], \"language\": \"English\",\"aspect\": \"4:3\"} },\n\n        { \"name\": \"V3\", \"attributes\": {\"countries\": [\"UK\"], \"language\": \"English\",\"aspect\": \"16:9\"} }\n\n      ]\n\n    }\n\n  ],\n\n  \"preroll\": [\n\n    {\n\n      \"name\": \"WB1\",\n\n      \"videos\": [\n\n        { \"name\": \"V4\", \"attributes\": {\"countries\": [\"US\"], \"language\": \"English\",\"aspect\": \"4:3\"} },\n\n        { \"name\": \"V5\", \"attributes\": {\"countries\": [\"CA\"], \"language\": \"English\",\"aspect\": \"16:9\"} },\n\n        { \"name\": \"V6\", \"attributes\": {\"countries\": [\"UK\"], \"language\": \"English\",\"aspect\": \"4:3\"} },\n\n        { \"name\": \"V7\", \"attributes\": {\"countries\": [\"UK\"], \"language\": \"English\",\"aspect\": \"16:9\"} }\n\n      ]\n\n    }\n\n  ]\n\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "02-Play List Cal API",
+			"description": "",
+			"item": [
+				{
+					"name": "Bad Request content name Missing",
+					"request": {
+						"url": {
+							"raw": "http://localhost:8080/playlist?contentName=&countryCode=CA",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"playlist"
+							],
+							"query": [
+								{
+									"key": "contentName",
+									"value": "",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "countryCode",
+									"value": "CA\n",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"content\": [\n\t\t{\n\t\t\t\"name\": \"MI3\",\n\t\t\t\"preroll\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"WB1\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"videos\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V15\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"US\",\n\t\t\t\t\t\t\t\"CA\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V2\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V3\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t},{\n\t\t\t\"name\": \"MI4\",\n\t\t\t\"preroll\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"WB14\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"videos\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V145\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"US\",\n\t\t\t\t\t\t\t\"CA\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V24\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V34\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t],\n\t\"preroll\": [\n\t\t{\n\t\t\t\"name\": \"WB1\",\n\t\t\t\"videos\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V4\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"US\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V5\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"CA\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V6\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V7\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t},\n\t\t{\n\t\t\t\"name\": \"WB14\",\n\t\t\t\"videos\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V44\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"US\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V54\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"CA\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V64\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V74\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t]\n}"
+						},
+						"description": "content name cannot be null"
+					},
+					"response": []
+				},
+				{
+					"name": "Bad Request Country Code Cannot be null",
+					"request": {
+						"url": {
+							"raw": "http://localhost:8080/playlist?contentName=MI3&countryCode=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"playlist"
+							],
+							"query": [
+								{
+									"key": "contentName",
+									"value": "MI3",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "countryCode",
+									"value": "\n",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"content\": [\n\t\t{\n\t\t\t\"name\": \"MI3\",\n\t\t\t\"preroll\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"WB1\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"videos\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V15\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"US\",\n\t\t\t\t\t\t\t\"CA\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V2\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V3\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t},{\n\t\t\t\"name\": \"MI4\",\n\t\t\t\"preroll\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"WB14\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"videos\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V145\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"US\",\n\t\t\t\t\t\t\t\"CA\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V24\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V34\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t],\n\t\"preroll\": [\n\t\t{\n\t\t\t\"name\": \"WB1\",\n\t\t\t\"videos\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V4\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"US\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V5\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"CA\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V6\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V7\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t},\n\t\t{\n\t\t\t\"name\": \"WB14\",\n\t\t\t\"videos\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V44\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"US\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V54\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"CA\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V64\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V74\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t]\n}"
+						},
+						"description": "Bad Request Country Code Cannot be null in get request"
+					},
+					"response": []
+				},
+				{
+					"name": "Eligibility Mismatch for Country Code US",
+					"request": {
+						"url": {
+							"raw": "http://localhost:8080/playlist?contentName=MI3&countryCode=US",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"playlist"
+							],
+							"query": [
+								{
+									"key": "contentName",
+									"value": "MI3",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "countryCode",
+									"value": "US\n",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"content\": [\n\t\t{\n\t\t\t\"name\": \"MI3\",\n\t\t\t\"preroll\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"WB1\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"videos\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V15\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"US\",\n\t\t\t\t\t\t\t\"CA\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V2\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V3\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t},{\n\t\t\t\"name\": \"MI4\",\n\t\t\t\"preroll\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"WB14\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"videos\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V145\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"US\",\n\t\t\t\t\t\t\t\"CA\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V24\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V34\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t],\n\t\"preroll\": [\n\t\t{\n\t\t\t\"name\": \"WB1\",\n\t\t\t\"videos\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V4\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"US\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V5\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"CA\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V6\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V7\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t},\n\t\t{\n\t\t\t\"name\": \"WB14\",\n\t\t\t\"videos\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V44\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"US\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V54\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"CA\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V64\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V74\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Good Case where content name MI3 & countryCode=UK",
+					"request": {
+						"url": {
+							"raw": "http://localhost:8080/playlist?contentName=MI3&countryCode=UK",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"playlist"
+							],
+							"query": [
+								{
+									"key": "contentName",
+									"value": "MI3",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "countryCode",
+									"value": "UK\n",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"content\": [\n\t\t{\n\t\t\t\"name\": \"MI3\",\n\t\t\t\"preroll\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"WB1\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"videos\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V15\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"US\",\n\t\t\t\t\t\t\t\"CA\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V2\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V3\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t},{\n\t\t\t\"name\": \"MI4\",\n\t\t\t\"preroll\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"WB14\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"videos\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V145\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"US\",\n\t\t\t\t\t\t\t\"CA\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V24\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V34\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t],\n\t\"preroll\": [\n\t\t{\n\t\t\t\"name\": \"WB1\",\n\t\t\t\"videos\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V4\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"US\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V5\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"CA\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V6\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V7\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t},\n\t\t{\n\t\t\t\"name\": \"WB14\",\n\t\t\t\"videos\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V44\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"US\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V54\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"CA\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V64\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V74\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Good Case where content name MI3 & countryCode=CA",
+					"request": {
+						"url": {
+							"raw": "http://localhost:8080/playlist?contentName=MI3&countryCode=CA",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"playlist"
+							],
+							"query": [
+								{
+									"key": "contentName",
+									"value": "MI3",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "countryCode",
+									"value": "CA\n",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"content\": [\n\t\t{\n\t\t\t\"name\": \"MI3\",\n\t\t\t\"preroll\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"WB1\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"videos\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V15\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"US\",\n\t\t\t\t\t\t\t\"CA\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V2\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V3\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t},{\n\t\t\t\"name\": \"MI4\",\n\t\t\t\"preroll\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"WB14\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"videos\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V145\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"US\",\n\t\t\t\t\t\t\t\"CA\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V24\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V34\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t],\n\t\"preroll\": [\n\t\t{\n\t\t\t\"name\": \"WB1\",\n\t\t\t\"videos\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V4\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"US\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V5\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"CA\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V6\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V7\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t},\n\t\t{\n\t\t\t\"name\": \"WB14\",\n\t\t\t\"videos\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V44\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"US\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V54\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"CA\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V64\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"4:3\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"V74\",\n\t\t\t\t\t\"attributes\": {\n\t\t\t\t\t\t\"countries\": [\n\t\t\t\t\t\t\t\"UK\"\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"language\": \"English\",\n\t\t\t\t\t\t\"aspect\": \"16:9\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,12 @@
+package com.playlist.model.common;
+
+public enum ErrorCode {
+	BAD_REQUEST,
+	DATA_NOT_FOUND,
+	ELIGIBILITY_MISMATCH,
+	MISSING_ATTRIBUTE,
+	UNKNOW_ERROR,
+	READ_TIME_OUT,
+	SYSTEM_EXCEPTION
+	
+}

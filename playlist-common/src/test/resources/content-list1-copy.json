@@ -1,0 +1,177 @@
+{
+	"content": [
+		{
+			"name": "MI3",
+			"preroll": [
+				{
+					"name": "WB1"
+				}
+			],
+			"videos": [
+				{
+					"name": "V1",
+					"attributes": {
+						"countries": [
+							"US",
+							"CA"
+						],
+						"language": "English",
+						"aspect": "16:9"
+					}
+				},
+				{
+					"name": "V2",
+					"attributes": {
+						"countries": [
+							"UK"
+						],
+						"language": "English",
+						"aspect": "4:3"
+					}
+				},
+				{
+					"name": "V3",
+					"attributes": {
+						"countries": [
+							"UK"
+						],
+						"language": "English",
+						"aspect": "16:9"
+					}
+				}
+			]
+		},{
+			"name": "MI4",
+			"preroll": [
+				{
+					"name": "WB14"
+				}
+			],
+			"videos": [
+				{
+					"name": "V14",
+					"attributes": {
+						"countries": [
+							"US",
+							"CA"
+						],
+						"language": "English",
+						"aspect": "16:9"
+					}
+				},
+				{
+					"name": "V24",
+					"attributes": {
+						"countries": [
+							"UK"
+						],
+						"language": "English",
+						"aspect": "4:3"
+					}
+				},
+				{
+					"name": "V34",
+					"attributes": {
+						"countries": [
+							"UK"
+						],
+						"language": "English",
+						"aspect": "16:9"
+					}
+				}
+			]
+		}
+	],
+	"preroll": [
+		{
+			"name": "WB1",
+			"videos": [
+				{
+					"name": "V4",
+					"attributes": {
+						"countries": [
+							"US"
+						],
+						"language": "English",
+						"aspect": "4:3"
+					}
+				},
+				{
+					"name": "V5",
+					"attributes": {
+						"countries": [
+							"CA"
+						],
+						"language": "English",
+						"aspect": "16:9"
+					}
+				},
+				{
+					"name": "V6",
+					"attributes": {
+						"countries": [
+							"UK"
+						],
+						"language": "English",
+						"aspect": "4:3"
+					}
+				},
+				{
+					"name": "V7",
+					"attributes": {
+						"countries": [
+							"UK"
+						],
+						"language": "English",
+						"aspect": "16:9"
+					}
+				}
+			]
+		},
+		{
+			"name": "WB14",
+			"videos": [
+				{
+					"name": "V44",
+					"attributes": {
+						"countries": [
+							"US"
+						],
+						"language": "English",
+						"aspect": "4:3"
+					}
+				},
+				{
+					"name": "V54",
+					"attributes": {
+						"countries": [
+							"CA"
+						],
+						"language": "English",
+						"aspect": "16:9"
+					}
+				},
+				{
+					"name": "V64",
+					"attributes": {
+						"countries": [
+							"UK"
+						],
+						"language": "English",
+						"aspect": "4:3"
+					}
+				},
+				{
+					"name": "V74",
+					"attributes": {
+						"countries": [
+							"UK"
+						],
+						"language": "English",
+						"aspect": "16:9"
+					}
+				}
+			]
+		}
+	]
+}

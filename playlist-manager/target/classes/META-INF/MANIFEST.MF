@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: playlist-manager
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: dalvares
+Implementation-Vendor-Id: com.playlist
+Build-Jdk: 1.8.0_152
+Implementation-URL: http://projects.spring.io/spring-boot/playlist-par
+ ent/playlist-manager/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

@@ -1,0 +1,5 @@
+com/playlist/model/Error.class
+com/playlist/model/Cause.class
+com/playlist/model/ErrorSeverity.class
+com/playlist/model/ServiceEntity.class
+com/playlist/model/ErrorCategory.class

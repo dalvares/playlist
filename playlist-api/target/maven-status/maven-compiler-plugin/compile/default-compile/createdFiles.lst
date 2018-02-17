@@ -1,0 +1,7 @@
+com/playlist/model/ContentMetaData.class
+com/playlist/model/Content.class
+com/playlist/model/Preroll.class
+com/playlist/model/VideoAttributes.class
+com/playlist/model/Asset.class
+com/playlist/model/Video.class
+com/playlist/model/PrerollRef.class
