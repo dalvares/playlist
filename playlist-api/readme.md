@@ -1,4 +1,4 @@
-# =============================Playlist API ============================#
+# ==================Playlist API =====================#
 
 ## Thoughts While building this module ##
 This is a very clean cut API which will be used by other consumers who would require to invoke the service. Currently Both Read and Ingestion APIs are defined in same service.
